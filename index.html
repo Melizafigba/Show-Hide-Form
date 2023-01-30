@@ -1,0 +1,136 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Show Hide Div on Select Option</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--TARJETA PAT Y PAC-->
+    <h3 class="label-input "> Desea Pagar con :</h3>
+
+    <br>
+    <br>
+    <select id="medioAporte" name="medioAporte" class="form-control valid wrap-input100  bg1" aria-invalid="false"
+        onchange="toggleDiv(this.value)">
+        <option selected="" value="">Seleccione medio de Pago</option>
+        <option value="1">Cargo mensual a tu tarjeta de crédito (PAT) </option>
+        <option value="2">Cargo mensual a tu cuenta corriente (PAC) </option>
+    </select>
+    <!--TARJETA PAC-->
+    <div id="box2" class="wrap-input100 input-group bg1  " style="display: none;">
+        <span class="label-input100">Número de cuenta</span>
+        <div class="wrap-input100">
+            <input class="input100" type="number" name="card_number" id="card_number" placeholder="123456789012345678">
+            <p id="tipoTarjeta" class="label-input100">Ingrese una cuenta valida</p>
+        </div>
+
+        <span class="label-input">Entidad Bancaria </span>
+
+        <div class="form-group label-floating wrap-input100 ">
+            <select id="banco" name="banco" class="form-control valid js-select2  select-2 " aria-invalid="false">
+                <option selected="" value="">Seleccione uno</option>
+                <option value="Banco de Chile">Banco de Chile</option>
+                <option value="Banco Citi-Edwards">Banco Citi-Edwards</option>
+                <option value="Banco Estado">Banco Estado</option>
+                <option value="Scotiabank Chile">Scotiabank Chile</option>
+                <option value="BCI - Banco de Crédito e Inversiones">BCI - Banco de Crédito e Inversiones
+                </option>
+                <option value="Corpbanca">Corpbanca</option>
+                <option value="Banco Bice">Banco Bice</option>
+                <option value="Banco Santander">Banco Santander</option>
+                <option value="Banco Itaú Chile">Banco Itaú Chile</option>
+                <option value="Banco Security">Banco Security</option>
+                <option value="BBVA - Banco Bilbao Vizcaya Argentaria">BBVA - Banco Bilbao Vizcaya
+                    Argentaria</option>
+            </select>
+            <div class="dropDownSelect2"></div>
+
+            <span class="material-input"></span>
+        </div>
+
+        <div class=" input-group bg1  " style="display: block;">
+            <span class="label-input100 ">Tipo de Cuenta </span>
+
+            <div class="form-group label-floating wrap-input100">
+                <select id="tipoCuenta" name="tipoCuenta" class="form-control js-select2 select-3 ">
+                    <option selected="" value="No seleccionado">Tipo de cuenta</option>
+                    <option value="Corriente">Corriente</option>
+                    <option value="Vista">Vista</option>
+                    <option value="Vista">Rut</option>
+                </select>
+                <div class="dropDownSelect2"></div>
+                <span class="material-input"></span>
+            </div>
+        </div>
+    </div>
+    <!-- FIN TARJETA PAC-->
+    <!-- TARJETA PAT-->
+    <div id="box1" class="wrap-input100 validate-input bg1 " style="display: none;"
+        data-validate="Ingrese tarjeta de credito">
+        <span class="label-input100">Número de tarjeta de credito</span>
+        <div class="wrap-input100">
+            <input class="input100" type="number" name="card_number" id="card_number" placeholder="1234567890123456">
+            <p id="tipoTarjeta" class="label-input100">Ingrese una tarjeta valida</p>
+        </div>
+
+
+        <span class="label-input">Institución emisora de la tarjeta *</span>
+        <div class="wrap-input100">
+            <select class="js-select2 select2-hidden-accessible select-2" name="banco" id="banco" tabindex="-1"
+                aria-hidden="true">
+                <option value=""> Seleccione una</option>
+                <option value="BCI">BCI (Banco de crédito e inversiones)</option>
+                <option value="Banco de chile">Banco de chile / Edwards City</option>
+                <option value="Banco estado">Banco estado</option>
+                <option value="Santander">Santander</option>
+                <option value="BBVVA">BBVVA</option>
+                <option value="Itau">Itaú</option>
+                <option value="Scotiabank">Scotiabank</option>
+                <option value="Corpbanca">Corpbanca</option>
+                <option value="Bice">Banco Bice</option>
+                <option value="Security">Banco Security</option>
+                <option value="Internacional">Banco Internacional</option>
+                <option value="Ripley">Ripley</option>
+                <option value="Falabella">Falabella</option>
+                <option value="Cencosud">Cencosud</option>
+                <option value="La polar">La polar</option>
+                <option value="Lider">Lider</option>
+                <option value="ABC DIN">ABC DIN</option>
+                <option value="CONSORCIO">CONSORCIO </option>
+                <option value="EL MERCURIO">EL MERCURIO</option>
+                <option value="Tricot">Tricot</option>
+                <option value="Coopeuch">Coopeuch</option>
+            </select>
+            <div class="dropDownSelect2"></div>
+        </div>
+
+        <!-- <div class="wrap-input100 validate-input bg1 rs1-wrap-input100"> -->
+        <div class="wrap-input100 validate-input bg1">
+            <span class="label-input100">Fecha de vencimiento</span><br><br>
+            <div class="wrap-input100" style="width: 49%; display: inline-block;" data-validate="Ingrese mes">
+                <input class="input100 " type="number" name="mesvence" id="mesvence" placeholder="Mes" max="12">
+            </div>
+            <div class="wrap-input100" style="width: 49%; display: inline-block;" data-validate="Ingrese año">
+                <input class="input100" type="number" name="agnovence" id="agnovence" placeholder="Año" min="2020">
+            </div>
+        </div>
+
+    </div>
+    <!-- FIN TARJETA PAT-->
+    <!-- <script>
+        function toggleDiv(value) {
+
+            if (value == "") {
+                alert("Please select an option");
+            }
+            const box = document.getElementById('box');
+            box.style.display = value == 1 ? 'block' : 'none';
+        }
+    </script> -->
+    <script src="main.js"></script>
+</body>
+
+</html>
